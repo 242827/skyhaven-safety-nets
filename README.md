@@ -21,6 +21,6 @@ pnpm dev
 ## Business contact
 
 - Phone and WhatsApp: +91 95026 53116
-- Email: Pavanmylapalli0@gmail.com
+- Email: Skyhaven720790@gmail.com
 - Service areas: Vijayawada, Hyderabad, Chennai, Karnataka and Kerala
 - Owner: Raviteja Chodipilli
