@@ -8,6 +8,84 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 const contactSection = document.querySelector('#contact');
 const requestedService = new URLSearchParams(window.location.search).get('service');
 
+const businessDetails = {
+  gstin: '37BYVPC7302K1Z1',
+  legalName: 'CHODIPALLI RAVITEJA',
+  tradeName: 'SKY HAVEN ENTERPRISES',
+};
+
+const footer = document.querySelector('.footer');
+if (footer && !footer.querySelector('[data-business-registration]')) {
+  const registration = document.createElement('section');
+  registration.className = 'footer-registration';
+  registration.dataset.businessRegistration = '';
+  registration.setAttribute('aria-label', 'Business registration details');
+  registration.innerHTML = `
+    <p><strong>GST-registered business</strong><span>Goods and Services Tax Identification Number</span></p>
+    <dl>
+      <div><dt>GSTIN</dt><dd>${businessDetails.gstin}</dd></div>
+      <div><dt>Legal name</dt><dd>${businessDetails.legalName}</dd></div>
+      <div><dt>Trade name</dt><dd>${businessDetails.tradeName}</dd></div>
+    </dl>`;
+  footer.querySelector('.footer-bottom')?.before(registration);
+}
+
+const offerKey = 'skyhaven-welcome-offer-seen-v1';
+let offerSeen = false;
+try {
+  offerSeen = window.localStorage.getItem(offerKey) === 'true';
+} catch {
+  offerSeen = false;
+}
+
+if (!offerSeen) {
+  const offerDialog = document.createElement('dialog');
+  offerDialog.className = 'welcome-offer';
+  offerDialog.setAttribute('aria-labelledby', 'welcome-offer-title');
+  offerDialog.innerHTML = `
+    <button class="welcome-offer-close" type="button" aria-label="Close welcome offer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+    </button>
+    <div class="welcome-offer-accent" aria-hidden="true"><span>20%</span><small>OFF</small></div>
+    <div class="welcome-offer-copy">
+      <p class="section-label">Welcome to SkyHaven</p>
+      <h2 id="welcome-offer-title">First-time customer offer</h2>
+      <p>Get <strong>20% off</strong> your first SkyHaven safety-net or invisible-grill installation.</p>
+      <div class="welcome-offer-actions">
+        <a class="button button-primary" href="https://wa.me/917207903116?text=Hello%20SkyHaven%2C%20I%20would%20like%20to%20claim%20the%2020%25%20first-customer%20offer." target="_blank" rel="noopener">Claim on WhatsApp</a>
+        <a class="welcome-offer-link" href="/services/invisible-grills.html">Explore invisible grills</a>
+      </div>
+    </div>`;
+  document.body.append(offerDialog);
+
+  const dismissOffer = () => {
+    try {
+      window.localStorage.setItem(offerKey, 'true');
+    } catch {
+      // The offer still closes when browser storage is unavailable.
+    }
+    if (offerDialog.open && typeof offerDialog.close === 'function') offerDialog.close();
+    else offerDialog.removeAttribute('open');
+    document.body.classList.remove('has-dialog');
+  };
+
+  offerDialog.querySelector('.welcome-offer-close')?.addEventListener('click', dismissOffer);
+  offerDialog.querySelector('.welcome-offer-actions a')?.addEventListener('click', dismissOffer);
+  offerDialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    dismissOffer();
+  });
+  offerDialog.addEventListener('click', (event) => {
+    if (event.target === offerDialog) dismissOffer();
+  });
+
+  window.setTimeout(() => {
+    document.body.classList.add('has-dialog');
+    if (typeof offerDialog.showModal === 'function') offerDialog.showModal();
+    else offerDialog.setAttribute('open', '');
+  }, reduceMotion ? 0 : 650);
+}
+
 const serviceData = {
   balcony: {
     title: 'Balcony Safety Nets',
@@ -271,7 +349,7 @@ form?.addEventListener('submit', (event) => {
     `Service: ${fields.service}`,
     `Details: ${fields.message || 'Not provided'}`,
   ].join('\n');
-  const whatsappUrl = `https://wa.me/919502653116?text=${encodeURIComponent(enquiry)}`;
+  const whatsappUrl = `https://wa.me/917207903116?text=${encodeURIComponent(enquiry)}`;
   formStatus.textContent = 'Your enquiry is ready. WhatsApp will open so you can review and send it to SkyHaven.';
   formStatus.classList.add('is-visible');
   if (['127.0.0.1', 'localhost'].includes(window.location.hostname)) {
