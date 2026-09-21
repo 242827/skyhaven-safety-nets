@@ -53,7 +53,7 @@ if (!offerSeen) {
       <p>Get <strong>20% off</strong> your first SkyHaven safety-net or invisible-grill installation.</p>
       <div class="welcome-offer-actions">
         <a class="button button-primary" href="https://wa.me/917207903116?text=Hello%20SkyHaven%2C%20I%20would%20like%20to%20claim%20the%2020%25%20first-customer%20offer." target="_blank" rel="noopener">Claim on WhatsApp</a>
-        <a class="welcome-offer-link" href="/services/invisible-grills.html">Explore invisible grills</a>
+        <a class="welcome-offer-link" href="services/invisible-grills.html">Explore invisible grills</a>
       </div>
     </div>`;
   document.body.append(offerDialog);
@@ -93,7 +93,7 @@ const serviceData = {
     description: 'Made-to-measure netting for balconies and railing gaps, planned to add a discreet protective barrier without unnecessarily reducing light, airflow or the view.',
     points: ['Measured around the complete opening', 'Material, mesh and fixings stated in the quote', 'Perimeter tension and corners checked at handover'],
     enquiry: 'Balcony safety nets',
-    images: ['/public/assets/source-services/sk-balcony.jpg', '/public/assets/source-services/bn-balcony.webp', '/public/assets/source-services/sk-slider1.jpg'],
+    images: ['public/assets/source-services/sk-balcony.jpg', 'public/assets/source-services/bn-balcony.webp', 'public/assets/source-services/sk-slider1.jpg'],
   },
   'child-pet': {
     title: 'Children & Pet Safety',
@@ -101,7 +101,7 @@ const serviceData = {
     description: 'A site-specific barrier planned around reachable gaps, climbable furniture, pet size and the way your family uses balconies, windows or internal voids.',
     points: ['Child and pet behaviour considered', 'Balconies, windows and duplex openings assessed', 'An additional precaution—not a replacement for supervision'],
     enquiry: 'Children safety nets',
-    images: ['/public/assets/source-services/sk-child-safety.jpg', '/public/assets/source-services/sk-slider4.jpg', '/public/assets/source-services/bn-pets.webp'],
+    images: ['public/assets/source-services/sk-child-safety.jpg', 'public/assets/source-services/sk-slider4.jpg', 'public/assets/source-services/bn-pets.webp'],
   },
   'bird-control': {
     title: 'Pigeon & Bird Control',
@@ -109,7 +109,7 @@ const serviceData = {
     description: 'Netting and deterrent systems that close recurring bird entry routes around balconies, ducts, ledges and terraces without trapping birds inside the protected area.',
     points: ['Entry routes and small edge gaps identified', 'Nets or spikes selected for the location', 'Cleaning and maintenance access considered'],
     enquiry: 'Pigeon or anti-bird nets',
-    images: ['/public/assets/source-services/sk-pigeon.jpg', '/public/assets/source-services/bn-anti-bird.webp', '/public/assets/source-services/sk-spikes.jpg'],
+    images: ['public/assets/source-services/sk-pigeon.jpg', 'public/assets/source-services/bn-anti-bird.webp', 'public/assets/source-services/sk-spikes.jpg'],
   },
   'invisible-grills': {
     title: 'Invisible Grills',
@@ -117,7 +117,7 @@ const serviceData = {
     description: 'Slim coated stainless-steel cable systems for balconies, windows and selected openings where customers prefer a more structured barrier with minimal visual interruption.',
     points: ['Cable grade, diameter and spacing specified', 'Supporting frame and fixing surfaces inspected', 'Tension, coating and fasteners checked at handover'],
     enquiry: 'Invisible grills',
-    images: ['/public/assets/source-services/sk-invisible-grills.jpg', '/public/assets/source-services/sk-slider2.jpg', '/public/assets/source-services/sk-work-05.jpg'],
+    images: ['public/assets/source-services/sk-invisible-grills.jpg', 'public/assets/source-services/sk-slider2.jpg', 'public/assets/source-services/sk-work-05.jpg'],
   },
   'duct-staircase': {
     title: 'Duct & Staircase Safety',
@@ -125,7 +125,7 @@ const serviceData = {
     description: 'Measured protection for stairwells, duplex voids, ventilation ducts and irregular openings where standard balcony layouts do not apply.',
     points: ['Irregular corners and direction changes measured', 'Ventilation and maintenance access preserved', 'Every edge and fixing point inspected'],
     enquiry: 'Duct area safety nets',
-    images: ['/public/assets/source-services/sk-duct.jpg', '/public/assets/source-services/bn-staircase.webp', '/public/assets/staircase.png'],
+    images: ['public/assets/source-services/sk-duct.jpg', 'public/assets/source-services/bn-staircase.webp', 'public/assets/staircase.png'],
   },
   sports: {
     title: 'Sports & Practice Nets',
@@ -133,7 +133,7 @@ const serviceData = {
     description: 'Practice and ball-stop netting designed around the sport, ball size, impact direction, available height and surrounding property.',
     points: ['Activity and high-impact zones assessed', 'Support structure and access gate planned', 'Suitable for schools, academies and private spaces'],
     enquiry: 'Cricket practice nets',
-    images: ['/public/assets/source-services/sk-cricket.jpg', '/public/assets/source-services/sk-sports.jpg', '/public/assets/source-services/sk-slider7.jpg'],
+    images: ['public/assets/source-services/sk-cricket.jpg', 'public/assets/source-services/sk-sports.jpg', 'public/assets/source-services/sk-slider7.jpg'],
   },
 };
 
@@ -158,19 +158,19 @@ menu?.querySelectorAll('a').forEach((link) => {
 const relatedImages = (title, primary) => {
   const name = title.toLowerCase();
   const choices = [primary];
-  if (name.includes('balcony')) choices.push('/public/assets/source-services/bn-balcony.webp', '/public/assets/source-services/sk-slider1.jpg');
-  else if (name.includes('child')) choices.push('/public/assets/source-services/sk-slider4.jpg', '/public/assets/source-services/bn-children.webp');
-  else if (name.includes('pet')) choices.push('/public/assets/source-services/sk-slider3.jpg', '/public/assets/source-services/bn-pets.webp');
-  else if (name.includes('staircase') || name.includes('duct')) choices.push('/public/assets/source-services/bn-staircase.webp', '/public/assets/source-services/bn-duct.webp');
-  else if (name.includes('bird') || name.includes('pigeon')) choices.push('/public/assets/source-services/bn-pigeon.webp', '/public/assets/source-services/bn-bird-spikes.webp');
-  else if (name.includes('invisible')) choices.push('/public/assets/source-services/sk-slider2.jpg', '/public/assets/source-services/sk-work-07.jpg');
-  else if (name.includes('cricket') || name.includes('sport')) choices.push('/public/assets/source-services/sk-terrace-cricket.jpg', '/public/assets/source-services/sk-slider7.jpg');
-  else if (name.includes('industrial')) choices.push('/public/assets/source-services/bn-industrial.webp', '/public/assets/source-services/sk-slider6.jpg');
-  else if (name.includes('building') || name.includes('construction') || name.includes('glass')) choices.push('/public/assets/source-services/bn-building.webp', '/public/assets/source-services/sk-slider5.jpg');
-  else if (name.includes('monkey')) choices.push('/public/assets/source-services/bn-monkey.webp', '/public/assets/source-services/sk-slider3.jpg');
-  else if (name.includes('coconut')) choices.push('/public/assets/source-services/bn-coconut.webp', '/public/assets/source-services/sk-coconut.jpg');
-  else if (name.includes('hanger') || name.includes('bamboo')) choices.push('/public/assets/source-services/sk-cloth-hanger.jpg', '/public/assets/source-services/sk-cloth-hangers-1062-x-531-px-2.jpg');
-  else choices.push('/public/assets/source-services/bn-open-area.webp', '/public/assets/source-services/sk-work-09.jpg');
+  if (name.includes('balcony')) choices.push('public/assets/source-services/bn-balcony.webp', 'public/assets/source-services/sk-slider1.jpg');
+  else if (name.includes('child')) choices.push('public/assets/source-services/sk-slider4.jpg', 'public/assets/source-services/bn-children.webp');
+  else if (name.includes('pet')) choices.push('public/assets/source-services/sk-slider3.jpg', 'public/assets/source-services/bn-pets.webp');
+  else if (name.includes('staircase') || name.includes('duct')) choices.push('public/assets/source-services/bn-staircase.webp', 'public/assets/source-services/bn-duct.webp');
+  else if (name.includes('bird') || name.includes('pigeon')) choices.push('public/assets/source-services/bn-pigeon.webp', 'public/assets/source-services/bn-bird-spikes.webp');
+  else if (name.includes('invisible')) choices.push('public/assets/source-services/sk-slider2.jpg', 'public/assets/source-services/sk-work-07.jpg');
+  else if (name.includes('cricket') || name.includes('sport')) choices.push('public/assets/source-services/sk-terrace-cricket.jpg', 'public/assets/source-services/sk-slider7.jpg');
+  else if (name.includes('industrial')) choices.push('public/assets/source-services/bn-industrial.webp', 'public/assets/source-services/sk-slider6.jpg');
+  else if (name.includes('building') || name.includes('construction') || name.includes('glass')) choices.push('public/assets/source-services/bn-building.webp', 'public/assets/source-services/sk-slider5.jpg');
+  else if (name.includes('monkey')) choices.push('public/assets/source-services/bn-monkey.webp', 'public/assets/source-services/sk-slider3.jpg');
+  else if (name.includes('coconut')) choices.push('public/assets/source-services/bn-coconut.webp', 'public/assets/source-services/sk-coconut.jpg');
+  else if (name.includes('hanger') || name.includes('bamboo')) choices.push('public/assets/source-services/sk-cloth-hanger.jpg', 'public/assets/source-services/sk-cloth-hangers-1062-x-531-px-2.jpg');
+  else choices.push('public/assets/source-services/bn-open-area.webp', 'public/assets/source-services/sk-work-09.jpg');
   return [...new Set(choices)].slice(0, 3);
 };
 
@@ -314,7 +314,7 @@ dialog?.querySelector('[data-showcase-enquire]')?.addEventListener('click', (eve
   closeShowcase();
   if (!contactSection) {
     window.setTimeout(() => {
-      window.location.href = `/contact.html?service=${encodeURIComponent(activeEnquiryChoice)}`;
+      window.location.href = new URL(`contact.html?service=${encodeURIComponent(activeEnquiryChoice)}`, document.baseURI).href;
     }, reduceMotion ? 0 : 220);
     return;
   }
@@ -379,7 +379,7 @@ window.addEventListener('scroll', () => {
 const initMotion = async () => {
   if (reduceMotion) return;
   try {
-    motionApi = await import('/public/vendor/motion.esm.js');
+    motionApi = await import(new URL('public/vendor/motion.esm.js', document.baseURI).href);
     if (!motionApi?.animate || !motionApi?.inView) throw new Error('Motion library unavailable');
     const { animate, inView, stagger } = motionApi;
     document.documentElement.dataset.motionStatus = 'ready';
