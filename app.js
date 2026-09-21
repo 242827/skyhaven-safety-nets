@@ -362,13 +362,9 @@ form?.addEventListener('submit', (event) => {
 document.querySelector('[data-year]').textContent = String(new Date().getFullYear());
 
 const header = document.querySelector('[data-header]');
-const progress = document.querySelector('[data-scroll-progress]');
 let scrollFrame = 0;
 const updateScrollState = () => {
   header?.classList.toggle('is-scrolled', window.scrollY > 18);
-  const available = document.documentElement.scrollHeight - window.innerHeight;
-  const value = available > 0 ? Math.min(1, window.scrollY / available) : 0;
-  if (progress) progress.style.transform = `scaleX(${value})`;
   scrollFrame = 0;
 };
 updateScrollState();
