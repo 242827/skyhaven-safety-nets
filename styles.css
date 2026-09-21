@@ -326,7 +326,9 @@ textarea { resize: vertical; }
 .multi-page-cta h2 { max-width: 720px; margin: 0; font-family: var(--display); font-size: clamp(44px,4.5vw,70px); font-weight: 600; line-height: .98; letter-spacing: -.04em; }
 .multi-page-cta p { max-width: 710px; margin: 20px 0 0; color: rgba(255,255,255,.72); }
 .multi-page-cta > div:last-child { display: flex; flex-direction: column; gap: 12px; min-width: 260px; }
-.multi-page-cta .button-secondary { color: white; border-color: rgba(255,255,255,.6); }
+.multi-page-cta .button-secondary { color: var(--navy); background: white; border-color: white; }
+.multi-page-cta .button-secondary:hover,
+.multi-page-cta .button-secondary:focus-visible { color: var(--navy); background: #eaf4f8; border-color: #eaf4f8; }
 
 .service-page-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 650px; }
 .service-page-copy { display: flex; flex-direction: column; justify-content: center; padding: 70px clamp(42px,6vw,86px) 80px max(32px,calc((100vw - var(--max))/2)); }
